@@ -12,7 +12,7 @@ public class UplataNaVlastitiRacun {
 	
 		while(broj < 1000 || broj >= 10000) {
 			System.out.println("Unesite vas broj racuna: ");
-			broj = input.nextInt();
+			broj = BankomatTest.reTry(input);
 		}
 		
 		int index = -1; 
@@ -30,11 +30,11 @@ public class UplataNaVlastitiRacun {
 		if(provjeraRacuna) {
 			System.out.println("Zdravo " + racun.getImeKorisnika());
 			System.out.println("Unesite iznos novca koji zelite uplatiti na vas racun: ");
-			double iznosUplate = input.nextDouble();
+			double iznosUplate = BankomatTest.reTryDouble(input);
 			//ukoliko je uneseni iznos uplate za transfer manji ili jednako od nule ispisi poruku korisniku da unese iznos veci od nule
 			while(iznosUplate <= 0.0) {
 				System.out.println("Unesite iznos veci od nule!");
-				iznosUplate = input.nextDouble();
+				iznosUplate = BankomatTest.reTryDouble(input);
 			}
 			//kada je uneseni broj jednak kreiranom racunu setuj novo stanje racuna dodavajuci iznos za transfer na postojece stanje racuna
 			racun.setStanjeRacuna(racun.getStanjeRacuna() + iznosUplate);
