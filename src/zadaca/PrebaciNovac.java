@@ -15,7 +15,7 @@ public class PrebaciNovac {
 		while (!provjeraRacuna) {
 			System.out.println("Unesite broj source racuna sa kojeg zelite prebaciti novac: ");
 
-			int broj = input.nextInt();
+			int broj = BankomatTest.reTry(input);
 
 			int index = -1;
 			provjeraRacuna = false;
@@ -38,11 +38,11 @@ public class PrebaciNovac {
 		while (!provjeraRacuna2) {
 			System.out.println("Unesite broj target racuna na koji zelite prenijeti sredstva:");
 
-			int broj2 = input.nextInt();
+			int broj2 = BankomatTest.reTry(input);
 			int index = -1;
 			provjeraRacuna2 = false;
 
-			// prodji kroz listu racuna i uporedi uneseni btoj od strane korisnika sa listom kreiranih racuna
+			// prodji kroz listu racuna i uporedi uneseni broj od strane korisnika sa listom kreiranih racuna
 			for (KreirajRacun object : racuni) {
 				index++;
 				if (object.getBrojRacuna() == broj2) {
@@ -54,12 +54,12 @@ public class PrebaciNovac {
 		}
 		//nakon provjere racuna odredjujemo iznos novca koji ce se prebaciti
 		System.out.println("Unesite iznos novca za transfer: ");
-		double novac = input.nextDouble();
+		double novac = BankomatTest.reTryDouble(input);
 		
 		//provjeravamo da li je iznos koji se zeli prebaciti veci od iznosa koji je na racunu
 		while(novac > sourceRacun.getStanjeRacuna()) {
 			System.out.println("Unijeli ste vise nego sto imate na racunu, unesite drugi iznos: ");
-			novac = input.nextDouble();
+			novac = BankomatTest.reTryDouble(input);
 		}
 		//setujemo nova stanja racuna za source kao i za target racun gdje se od postojeceg stanja source racuna oduzima iznos koji se koristio 
 		//za transfer te se tako postavlja novo stanje source racuna a na postojece stanje target racuna se dodaje iznos odredjen za transfer i postavlja se novo stanje target racuna

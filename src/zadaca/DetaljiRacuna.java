@@ -14,7 +14,7 @@ public class DetaljiRacuna {
 		//vrsimo provjeru unesenog broja sa listom kreiranih racuna
 		while (!provjeraRacuna) {
 			System.out.println("Unesite vas broj racuna: ");
-			int broj = input.nextInt();
+			int broj = BankomatTest.reTry(input);
 
 			int index = -1;
 			provjeraRacuna = false;
